@@ -2,7 +2,7 @@
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that Manages workflow on github for OpenCode.  
 
-## Setup
+## Setup it in your System
 
 ```sh
 # Install dependencies
