@@ -147,7 +147,7 @@ async function checkMaxIssue(user,context){
   // console.log(result.data)
   // console.log("Count")
   // console.log(count)
-  if(count>2){
+  if(count>=2){
     return true
   }
   return false
