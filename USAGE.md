@@ -11,7 +11,9 @@ Its purpose is to work around various limitations in GitHub’s permissions and 
  
 ## Instructions
 * Participant can take only two issues simultaneously.
-* Before starting work on issue,make sure that you have claimed it, and it is showing you as a assignee. 
+* If you claim issue on a repo for first time,it will first sent you a invitation.
+* After accepting invitation, once again comment ```@opencodebot claim``` on the issue to claim it. 
+* Before starting work on issue, make sure that you have claimed it, and it is showing you as a assignee. 
 * Just after opening PR, bot will automatically assign one of the mentors as reviewer on PR.
 
 If you found any glitches in the bot, inform it to any mentor, we will try to resolve it as soon as possible.
