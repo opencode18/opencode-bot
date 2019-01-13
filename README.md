@@ -25,9 +25,18 @@ Before you get started, make sure you have:
 
    ```$ npm install```
     
-5. Run the bot.
+5. Restart the terminal and run the bot.
 
-   ```$ npm start```
+   ```$ npm run dev```
+
+6. Output of above command would be like thi:
+
+    ```sh 
+       INFO probot:
+   Welcome to Probot! Go to http://localhost:3000 to get started.
+   ```
+7. Register the app and follow instructions on http://localhost:3000.
+For further assistance, see [this](https://probot.github.io/docs/development/#configuring-a-github-app).
    
    
 ## Usage
