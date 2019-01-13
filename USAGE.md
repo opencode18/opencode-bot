@@ -3,7 +3,7 @@ OpenCode uses [@opencodebot](https://github.com/opencodebot), a GitHub workflow 
 
 Its purpose is to work around various limitations in GitHub’s permissions and notifications systems to make it possible to have a much more democractic workflow for our contributors. It allows anyone to self-assign or label an issue, not just the core contributors trusted with full write access to the repository (which is the only model GitHub supports).
 
-## Usage
+## Commands
 
  ***Claim an issue*** - Comment ```@opencodebot claim``` on the issue you want to claim; **opencodebot** will assign you to the issue and label the issue as in progress.
  
