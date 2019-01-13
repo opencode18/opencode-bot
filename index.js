@@ -53,7 +53,7 @@ function parseCommand(comment){
   pattern.push(/@opencodebot claim/gim)
   pattern.push(/@opencodebot unclaim/gim)
 
-  for(i=0;i<pattern.length;i++){
+  for(var i=0;i<pattern.length;i++){
     var myarray = comment.match(pattern[i]);
     if(myarray!=null && myarray.length>0){
       command.push(func[i])
@@ -68,7 +68,7 @@ function parseCommand(comment){
 }
 
 async function execCommand(command,user,context){
-  for(i=0;i<command.length;i++){
+  for(var i=0;i<command.length;i++){
     var comment;
     switch(command[i]) {
       case func[0]:
@@ -89,7 +89,27 @@ async function execCommand(command,user,context){
 }
 
 async function claimIssue(user,context){
+  const repoName = context.payload.repository.name;
+  const repoOwner = context.payload.repository.owner.login;
   var comment 
+  try{
+    await context.github.repos.checkCollaborator({owner: repoOwner, repo:repoName, username:user})
+  }
+  catch(response){
+    if (response.code !== 404) {
+      const error = "**ERROR:** Unexpected response from GitHub API.";
+      return context.github.issues.createComment({
+        owner: repoOwner, repo: repoName, number: context.payload.issue.number, body: error
+      });
+    }
+
+    const result =await context.github.repos.addCollaborator({
+      owner: repoOwner, repo: repoName, username: user, permission: "pull"
+    });
+    
+    comment = context.issue({body: 'Welcome to OpenCode! Invitation has been sent,check your mail. Please accept it to contribute in this repo and again claim this issue. See the further instructions [here](https://github.com/opencodeiiita/opencodebot/blob/master/USAGE.md).'})
+    return comment
+  }
   if(checkLabel('Everyone',context)){
     comment = context.issue({body: 'Issue is labled "Everyone".It cannot be claimed.'})
   }
@@ -128,7 +148,7 @@ function checkLabel(label,context){
   var result = context.payload.issue.labels
   console.log(result)
   if(result!=null){
-    for(i=0;i<result.length;i++){
+    for(var i=0;i<result.length;i++){
       if(result[i].name==label){
         return true
       }
