@@ -49,6 +49,8 @@ If you have suggestions for how opencodebot could be improved, or want to report
 
 For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
+If you need any help just ask us on our zulip channel https://opencode.zulipchat.com under the #opencodebot stream, we will reply you as soon as possible.
+
 ## License
 
 [ISC](LICENSE) © 2018 OpenCode <geekhaven@iiita.ac.in>
